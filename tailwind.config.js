@@ -19,6 +19,15 @@ module.exports = {
         sans: ['DM Sans', 'sans-serif'],
         serif: ['DM Serif Display', 'serif'],
       },
+      animation: {
+        marquee: 'marquee 24s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
     },
   },
   plugins: [],
