@@ -67,7 +67,7 @@ export default async function Account() {
             <p className="text-sm text-gray-500 mb-4">
               To cancel your subscription, click below to access the Stripe customer portal where you can cancel, pause, or update your plan.
             </p>
-            <a href="https://billing.stripe.com/p/login/test_28o5kV1Wn3SC4Za144" target="_blank" rel="noopener noreferrer">
+            <a href="https://billing.stripe.com/p/login/9B6bITdwS9Ds5sk4Yu7kc00" target="_blank" rel="noopener noreferrer">
               <button className="border border-gray-200 text-gray-700 px-5 py-2 rounded-lg text-sm font-semibold hover:border-red-300 hover:text-red-600 transition-all">
                 Manage / Cancel Subscription →
               </button>
