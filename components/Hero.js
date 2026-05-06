@@ -1,51 +1,12 @@
 import Link from 'next/link'
 
-export default function Hero() {
-  const affiliates = [
-    {
-      logo: (
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#5B21B6"/>
-          <text x="16" y="22" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="serif">f</text>
-        </svg>
-      ),
-      name: 'Fathom',
-      category: 'AI Meeting Recorder',
-      desc: 'Never take meeting notes again. Fathom records, transcribes, and summarizes your calls automatically.',
-      cta: 'Try Free',
-      href: 'https://fathom.video/invite/Dt86jg',
-      badge: 'Free Plan Available',
-    },
-    {
-      logo: (
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#FF7A59"/>
-          <text x="16" y="22" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="sans-serif">Hs</text>
-        </svg>
-      ),
-      name: 'HubSpot',
-      category: 'CRM and Marketing',
-      desc: 'The all-in-one CRM platform that helps small businesses grow faster. Free to get started.',
-      cta: 'Get Started Free',
-      href: 'https://hubspot.com',
-      badge: 'Free Forever Plan',
-    },
-    {
-      logo: (
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#96BF48"/>
-          <text x="16" y="22" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold" fontFamily="sans-serif">Sh</text>
-        </svg>
-      ),
-      name: 'Shopify',
-      category: 'eCommerce Platform',
-      desc: 'Start, grow, and manage your online business with the worlds most trusted eCommerce platform.',
-      cta: 'Start Free Trial',
-      href: 'https://shopify.pxf.io/GbZ7XE',
-      badge: 'Free Trial',
-    },
-  ]
+const affiliates = [
+  { name: 'Fathom', category: 'AI Meeting Recorder', desc: 'Never take meeting notes again. Fathom records, transcribes, and summarizes your calls automatically.', cta: 'Try Free', href: 'https://fathom.video/invite/Dt86jg', badge: 'Free Plan', color: '#5B21B6', initials: 'f' },
+  { name: 'HubSpot', category: 'CRM and Marketing', desc: 'The all-in-one CRM platform that helps small businesses grow faster. Free to get started.', cta: 'Get Started Free', href: 'https://hubspot.com', badge: 'Free Forever', color: '#FF7A59', initials: 'Hs' },
+  { name: 'Shopify', category: 'eCommerce Platform', desc: 'Start, grow, and manage your online business with the worlds most trusted eCommerce platform.', cta: 'Start Free Trial', href: 'https://shopify.pxf.io/GbZ7XE', badge: 'Free Trial', color: '#96BF48', initials: 'Sh' },
+]
 
+export default function Hero() {
   return (
     <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-12 px-14 pt-36 pb-24 relative overflow-hidden bg-white">
       <div className="absolute -top-24 -right-16 w-96 h-96 rounded-full bg-green-50 opacity-60 blur-3xl pointer-events-none" />
@@ -64,21 +25,21 @@ export default function Hero() {
         </p>
         <div className="flex gap-4 items-center flex-wrap mb-20">
           <Link href="/sign-up">
-            <button className="bg-green-500 text-white px-9 py-4 rounded-lg text-base font-semibold hover:bg-green-700 transition-all hover:-translate-y-0.5">
+            <button className="bg-green-500 text-white px-9 py-4 rounded-lg text-base font-semibold hover:bg-green-700 transition-all">
               Start Free No Card Needed
             </button>
           </Link>
-          <a href="#features">
+          <Link href="#features">
             <button className="border border-gray-200 text-gray-500 px-9 py-4 rounded-lg text-base font-medium hover:border-green-500 hover:text-green-700 transition-all">
               See All 6 Tools
             </button>
-          </a>
+          </Link>
         </div>
         <div className="flex max-w-xl border border-gray-100 rounded-2xl overflow-hidden bg-white shadow-sm">
           <div className="flex-1 px-6 py-5 border-r border-gray-100 text-center">
             <div className="font-serif text-4xl text-black">6+</div>
             <div className="text-xs text-gray-400 mt-1 font-medium">AI Tools</div>
-    </div>
+          </div>
           <div className="flex-1 px-6 py-5 border-r border-gray-100 text-center">
             <div className="font-serif text-4xl text-black">10x</div>
             <div className="text-xs text-gray-400 mt-1 font-medium">Faster Writing</div>
@@ -97,35 +58,29 @@ export default function Hero() {
         <div className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
           Recommended Tools for Your Business
         </div>
-        {affiliates.map((a) => (
-          
-            key={a.name}
-            href={a.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md hover:border-green-200 hover:-translate-y-0.5 transition-all"
-          >
+        {affiliates.map((item) => (
+          <div key={item.name} className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md hover:border-green-200 transition-all">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">
-                {a.logo}
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{backgroundColor: item.color}}>
+                {item.initials}
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1 flex-wrap gap-2">
                   <div>
-                    <span className="font-bold text-black text-sm">{a.name}</span>
-                    <span className="text-xs text-gray-400 ml-2">{a.category}</span>
+                    <span className="font-bold text-black text-sm">{item.name}</span>
+                    <span className="text-xs text-gray-400 ml-2">{item.category}</span>
                   </div>
-                  <span className="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full whitespace-nowrap">
-                    {a.badge}
+                  <span className="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full">
+                    {item.badge}
                   </span>
                 </div>
-                <p className="text-xs text-gray-500 leading-relaxed mb-3">{a.desc}</p>
-                <span className="text-xs font-semibold text-green-600">
-                  {a.cta} →
-                </span>
+                <p className="text-xs text-gray-500 leading-relaxed mb-3">{item.desc}</p>
+                <Link href={item.href} target="_blank" rel="noopener noreferrer">
+                  <span className="text-xs font-semibold text-green-600">{item.cta} →</span>
+                </Link>
               </div>
             </div>
-          </a>
+          </div>
         ))}
         <p className="text-xs text-gray-300 text-center mt-1">
           Some links are affiliate links. We may earn a commission at no cost to you.
@@ -134,4 +89,3 @@ export default function Hero() {
     </section>
   )
 }
-          </div>
