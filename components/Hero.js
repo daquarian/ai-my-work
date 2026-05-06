@@ -33,16 +33,16 @@ export default function Hero() {
     {
       logo: (
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#7D2AE8"/>
-          <text x="16" y="22" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="sans-serif">Ca</text>
+          <rect width="32" height="32" rx="8" fill="#96BF48"/>
+          <text x="16" y="22" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold" fontFamily="sans-serif">Sh</text>
         </svg>
       ),
-      name: 'Canva',
-      category: 'Design & Branding',
-      desc: 'Create stunning graphics, presentations, and marketing materials in minutes. No design skills needed.',
-      cta: 'Design for Free →',
-      href: 'https://canva.com',
-      badge: 'Free Plan Available',
+      name: 'Shopify',
+      category: 'eCommerce Platform',
+      desc: 'Start, grow, and manage your online business with the world\'s most trusted eCommerce platform.',
+      cta: 'Start Free Trial →',
+      href: 'https://shopify.pxf.io/GbZ7XE',
+      badge: 'Free Trial',
     },
   ]
 
