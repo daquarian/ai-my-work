@@ -1,9 +1,50 @@
 import Link from 'next/link'
 
 const affiliates = [
-  { name: 'Fathom', category: 'AI Meeting Recorder', desc: 'Never take meeting notes again. Fathom records, transcribes, and summarizes your calls automatically.', cta: 'Try Free', href: 'https://fathom.video/invite/Dt86jg', badge: 'Free Plan', color: '#5B21B6', initials: 'f' },
-  { name: 'HubSpot', category: 'CRM and Marketing', desc: 'The all-in-one CRM platform that helps small businesses grow faster. Free to get started.', cta: 'Get Started Free', href: 'https://hubspot.com', badge: 'Free Forever', color: '#FF7A59', initials: 'Hs' },
-  { name: 'Shopify', category: 'eCommerce Platform', desc: 'Start, grow, and manage your online business with the worlds most trusted eCommerce platform.', cta: 'Start Free Trial', href: 'https://shopify.pxf.io/GbZ7XE', badge: 'Free Trial', color: '#96BF48', initials: 'Sh' },
+  {
+    name: 'Fathom',
+    category: 'AI Meeting Recorder',
+    desc: 'Never take meeting notes again. Fathom records, transcribes, and summarizes your calls automatically.',
+    cta: 'Try Free',
+    href: 'https://fathom.video/invite/Dt86jg',
+    badge: 'Free Plan',
+    logo: (
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="10" fill="#6C3BFF"/>
+        <path d="M12 14h16v3H12zM12 20h10v3H12zM12 26h13v3H12z" fill="white"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'HubSpot',
+    category: 'CRM and Marketing',
+    desc: 'The all-in-one CRM platform that helps small businesses grow faster. Free to get started.',
+    cta: 'Get Started Free',
+    href: 'https://hubspot.com',
+    badge: 'Free Forever',
+    logo: (
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="10" fill="#FF7A59"/>
+        <circle cx="24" cy="14" r="4" fill="white"/>
+        <path d="M24 18v4M17 22a7 7 0 1 0 14 0 7 7 0 0 0-14 0z" stroke="white" strokeWidth="2.5" fill="none"/>
+        <circle cx="24" cy="22" r="2.5" fill="white"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'Shopify',
+    category: 'eCommerce Platform',
+    desc: 'Start, grow, and manage your online business with the worlds most trusted eCommerce platform.',
+    cta: 'Start Free Trial',
+    href: 'https://shopify.pxf.io/GbZ7XE',
+    badge: 'Free Trial',
+    logo: (
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="10" fill="#96BF48"/>
+        <path d="M26 11c0 0-0.3-0.2-0.8-0.2c-0.4 0-1 0.1-1.6 0.5C23 9.7 22 9 20.8 9c-3.2 0-4.8 4-5.3 6c-1.3 0.4-2.2 0.7-2.3 0.7c-0.7 0.2-0.7 0.2-0.8 0.9C12.3 17.1 10 31 10 31l14 2.5L30 31c0 0-3.8-19.5-4-20zM23 12c-0.5 0.2-1.1 0.3-1.7 0.5c0.4-1.6 1.2-2.4 1.9-2.7C23.4 10.4 23.2 11.4 23 12zM20.8 9.8c0.2 0 0.4 0 0.5 0.1c-0.8 0.4-1.7 1.4-2.1 3.4c-0.5 0.2-1 0.3-1.5 0.5C18.2 11.9 19.4 9.8 20.8 9.8zM20 26c-1.1 0-2-0.9-2-2s0.9-2 2-2s2 0.9 2 2S21.1 26 20 26z" fill="white"/>
+      </svg>
+    ),
+  },
 ]
 
 export default function Hero() {
@@ -56,13 +97,13 @@ export default function Hero() {
       </div>
       <div className="relative z-10 flex flex-col justify-center gap-4">
         <div className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
-          Top Affiliate Partners
+          Recommended Tools for Your Business
         </div>
         {affiliates.map((item) => (
           <div key={item.name} className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md hover:border-green-200 transition-all">
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{backgroundColor: item.color}}>
-                {item.initials}
+              <div className="flex-shrink-0">
+                {item.logo}
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1 flex-wrap gap-2">
