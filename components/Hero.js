@@ -16,7 +16,7 @@ const affiliates = [
     desc: 'The all-in-one CRM platform that helps small businesses grow faster. Free to get started.',
     cta: 'Get Started Free',
     href: 'https://hubspot.com',
-    badge: 'Free Forever',
+    badge: 'Free to Start',
     logo: 'https://cdn.brandfetch.io/hubspot.com/w/400/h/400',
   },
   {
