@@ -80,7 +80,7 @@ export default function Hero() {
       </div>
       <div className="relative z-10 flex flex-col justify-center gap-4">
         <div className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
-          Recommended Tools for Your Business
+          Other Recommended Tools for Your Business
         </div>
         {affiliates.map((item) => (
           <div key={item.name} className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md hover:border-green-200 transition-all">
