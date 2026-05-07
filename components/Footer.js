@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
 
       <div className="text-xs text-gray-300">
-        © 2026 AI-My-Work.com — All Rights Reserved
+        © 2026 AI-My-Work.com — All Rights Reserved. These tools are AI and can make mistakes. Please double check responses.
       </div>
     </footer>
   )
