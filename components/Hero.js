@@ -11,15 +11,6 @@ const affiliates = [
     logo: 'https://cdn.brandfetch.io/fathom.video/w/400/h/400',
   },
   {
-    name: 'HubSpot',
-    category: 'CRM and Marketing',
-    desc: 'The all-in-one CRM platform that helps small businesses grow faster. Free to get started.',
-    cta: 'Get Started Free',
-    href: 'https://hubspot.com',
-    badge: 'Free to Start',
-    logo: 'https://cdn.brandfetch.io/hubspot.com/w/400/h/400',
-  },
-  {
     name: 'Shopify',
     category: 'eCommerce Platform',
     desc: 'Start, grow, and manage your online business with the worlds most trusted eCommerce platform.',
