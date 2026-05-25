@@ -1,8 +1,14 @@
 import { UserButton, currentUser } from '@clerk/nextjs'
 import Link from 'next/link'
+import connectDB from '@/lib/db'
+import User from '@/models/User'
 
 export default async function Account() {
   const user = await currentUser()
+  
+  await connectDB()
+  const dbUser = await User.findOne({ clerkId: user?.id })
+  const isPremium = dbUser?.plan === 'premium'
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -52,30 +58,38 @@ export default async function Account() {
           <div className="bg-green-50 border border-green-200 rounded-xl p-5 mb-6">
             <div className="flex justify-between items-center">
               <div>
-                <div className="font-semibold text-black">Current Plan</div>
-                <div className="text-sm text-gray-500 mt-1">Manage your subscription below</div>
+                <div className="font-semibold text-black">
+                  {isPremium ? 'Premium Plan ✓' : 'Free Plan'}
+                </div>
+                <div className="text-sm text-gray-500 mt-1">
+                  {isPremium ? 'You have full access to all 6 AI writing tools' : 'Upgrade to unlock all 6 AI writing tools'}
+                </div>
               </div>
-              <Link href="/upgrade">
-                <button className="bg-green-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-all">
-                  Upgrade to Premium
-                </button>
-              </Link>
+              {!isPremium && (
+                <Link href="/upgrade">
+                  <button className="bg-green-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-all">
+                    Upgrade to Premium
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
-          <div className="border border-gray-100 rounded-xl p-5">
-            <h3 className="font-semibold text-black mb-2">Cancel Subscription</h3>
-            <p className="text-sm text-gray-500 mb-4">
-              To cancel your subscription, click below to access the Stripe customer portal where you can cancel, pause, or update your plan.
-            </p>
-            <a href="https://billing.stripe.com/p/login/9B6bITdwS9Ds5sk4Yu7kc00" target="_blank" rel="noopener noreferrer">
-              <button className="border border-gray-200 text-gray-700 px-5 py-2 rounded-lg text-sm font-semibold hover:border-red-300 hover:text-red-600 transition-all">
-                Manage / Cancel Subscription →
-              </button>
-            </a>
-          </div>
+          {isPremium && (
+            <div className="border border-gray-100 rounded-xl p-5">
+              <h3 className="font-semibold text-black mb-2">Cancel Subscription</h3>
+              <p className="text-sm text-gray-500 mb-4">
+                To cancel your subscription, click below to access the Stripe customer portal where you can cancel, pause, or update your plan.
+              </p>
+              <a href="https://billing.stripe.com/p/login/9B6bITdwS9Ds5sk4Yu7kc00" target="_blank" rel="noopener noreferrer">
+                <button className="border border-gray-200 text-gray-700 px-5 py-2 rounded-lg text-sm font-semibold hover:border-red-300 hover:text-red-600 transition-all">
+                  Manage / Cancel Subscription →
+                </button>
+              </a>
+            </div>
+          )}
         </div>
 
-        {/* Danger zone */}
+        {/* Sign Out */}
         <div className="bg-white border border-red-100 rounded-2xl p-8">
           <h2 className="font-bold text-red-600 mb-4">Sign Out</h2>
           <p className="text-sm text-gray-500 mb-4">
